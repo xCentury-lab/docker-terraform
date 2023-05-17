@@ -10,7 +10,7 @@ Modify the variable if you want to change
 
 docker build
 ```bash
-$ docker build -t alpine-terraform
+$ podman build -t terraform:latest .
 ```
 
 ## Step.2
@@ -26,7 +26,7 @@ services:
     restart: always
     container_name: terraform_container
     volumes:
-      - [Your terraform project path]:/terraform
+      - /home/user/docker-terraform :/terraform
     tty: true
 ```
 
@@ -39,7 +39,11 @@ $ docker-compose up -d
 Access the container
 
 ```bash
-docker exec -it terraform_container /bin/sh
+× docker exec -it terraform_container /bin/sh
+podman run --rm localhost/terraform:latest version
+podman run -it --rm -v $(pwd):/data localhost/terraform:latest init
+podman run -it --rm -v $(pwd):/data localhost/terraform:latest plan
+podman run -it --rm -v $(pwd):/data:z localhost/terraform:latest apply
 ```
 
 **Get started with terraform**
