@@ -41,8 +41,8 @@ Access the container
 ```bash
 × docker exec -it terraform_container /bin/sh
 podman run --rm localhost/terraform:latest version
-podman run -it --rm -v $(pwd):/data localhost/terraform:latest init
-podman run -it --rm -v $(pwd):/data localhost/terraform:latest plan
+podman run -it --rm -v $(pwd):/data:z localhost/terraform:latest init
+podman run -it --rm -v $(pwd):/data:z localhost/terraform:latest plan
 podman run -it --rm -v $(pwd):/data:z localhost/terraform:latest apply
 ```
 
