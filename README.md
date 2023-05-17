@@ -13,7 +13,7 @@ docker build
 $ podman build -t terraform:latest .
 ```
 
-## Step.2
+## Step.2　　（Podmanの場合は不要です？）
 
 docker-compose.yml
 
